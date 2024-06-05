@@ -8,7 +8,7 @@ Registration of clinical studies including protocols and results on ClinicalTria
     <img src="./images/study_dist.svg" alt="Study distribution by year" />
 </div>
 
-ClinicalTrials.gov holds a wealth of knowledge about clinical trials and how they are conducted, including final outcome status for trials. The project aims to lay the initial groundwork for predictive analysis that will inform study protocol design, and decision making to align with practices associated with higher success in completing clinical trial.
+ClinicalTrials.gov holds a wealth of knowledge about clinical trials and how they are conducted, including the final outcome status for trials. The project aims to lay the initial groundwork for predictive analysis that will inform study protocol design, and decision-making to align with practices associated with higher success in completing clinical trials.
 
 ### Project Goals
 1. Identify data features within ClinicalTrials.gov that may predict clinical trial completion
@@ -19,9 +19,9 @@ ClinicalTrials.gov holds a wealth of knowledge about clinical trials and how the
 
 ### Assumptions and Limitations
 
-The ClinicalTrials.gov database is design for public access to information, not predictive modelling. Fields within the database may be updated before, during, or after completion for the study. Ideally, this analysis could be limited to inputs known prior to study initiation, however the sequence of these inputs and changes is not necessarily known.
+The ClinicalTrials.gov database is designed for public access to information, not predictive modeling. Fields within the database may be updated before, during, or after the completion of the study. Ideally, this analysis could be limited to inputs known prior to study initiation, however, the sequence of these inputs and changes is not necessarily known.
 
-The field selection for initial download and inclusion were intended to represent study design and protocol decision-making. A more thorough audit of field edit timestamps and previous values with subject matter expertise of the clinical trials submission and record keeping process was not available within the limited scope of this project. It is possible that data leakage may occur for fields that have been updated during or after study completion.
+Field selection for initial download and inclusion was intended to represent study design and protocol decision-making. A more thorough audit of field edit timestamps and previous values with subject matter expertise of the clinical trials submission and record keeping-process was not available within the limited scope of this project. It is possible that data leakage may occur for fields that have been updated during or after study completion.
 
 ## Data Source
 
@@ -32,7 +32,7 @@ Comprehensive documentation is available on the ClinicalTrials.gov website
 - [Data structure](https://clinicaltrials.gov/data-api/about-api/study-data-structure)
 - [ESSIE query syntax](https://clinicaltrials.gov/find-studies/constructing-complex-search-queries)
 
-115 data fields were initially selected for download and exploratory analysis from the 568 documented API fields. These 115 fields are defined in the included [inscope_fields.txt](./inscope_fields.txt) file. From these 115 fields, 69 were selected for encoding and predictive modelling.
+115 data fields were initially selected for download and exploratory analysis from the 568 documented API fields. These 115 fields are defined in the included [inscope_fields.txt](./inscope_fields.txt) file. From these 115 fields, 69 were selected for encoding and predictive modeling.
 
 | Field Type | No. Fields |
 | - | :-: |
@@ -47,7 +47,7 @@ Analysis of 383,135 clinical study records revealed a wealth of information in C
 
 ### Model results
 
-All models developed were able to successfully predict study completion better than baseline. Traditional logistic regression and Neural Network models performed similarly. The complex neural network approach was able to slightly outperform all other models. Both neural network models were able to outperformed the logistic progression models in terms of accuracy and balanced accuracy without the need for SMOTE. It's notable, that the compute time required to train the basic neural networks was lower than that of the logistic regression models, while achieving comparable, or slightly higher performance.
+All models developed were able to successfully predict study completion better than baseline. Traditional logistic regression and Neural Network models performed similarly. The complex neural network approach was able to slightly outperform all other models. Both neural network models were able to outperform the logistic progression models in terms of accuracy and balanced accuracy without the need for SMOTE. It's notable, that the compute time required to train the basic neural networks was lower than that of the logistic regression models while achieving comparable, or slightly higher performance.
 
 | Model | Accuracy Score | Balanced Accuracy Score | Train Time |
 | - | :-: | :-: | :-: |
@@ -58,8 +58,8 @@ All models developed were able to successfully predict study completion better t
 | Complex Sequential Neural Network | 91.4% | 86.0% | 187s |
 
 ### Conclusion
-- Given additional resources, further analysis could help guide the design and implementation of clinical trials as well if provide a predictive model of ongoing study health and future study success.
+- Given additional resources, further analysis could help guide the design and implementation of clinical trials as well as provide a predictive model of ongoing study health and future study success.
 - A full retrospective analysis of study design and reported results could identify specific approaches associated with clinical trial success.
 - Snapshots of the comprehensive set of trial data at multiple time points during study planning and throughout implementation would improve predictive power and prevent data leakage.
 - Integration of additional data sources connecting the development of health interventions across multiple studies and ultimate product marketability would be instrumental for continued research. 
-- NLP analysis of free-text fields, particularly in regard to detail protocol design and trial results may yield additional benefits.
+- NLP analysis of free-text fields, particularly regarding detailed protocol design and trial results may yield additional benefits.
